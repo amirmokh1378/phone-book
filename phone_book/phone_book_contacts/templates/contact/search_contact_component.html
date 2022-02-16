@@ -1,0 +1,24 @@
+{% load static %}
+<section onclick="checkSizeSction()">
+        {% for contact in contact_qu %}
+        <div id="{{ contact.pk }}" onclick="selectItem({{ contact.pk }})">
+            {% if contact.image %}
+                <img src="{{ contact.image.url }}" alt="">
+            {% else %}
+                <img src="{% static 'image/user.jpg' %}" alt="">
+
+            {% endif %}
+
+            <p name="name">اسم: {{ contact.name }}</p>
+            <p name="family">فامیلی: {{ contact.family }}</p>
+            <p name="email" hidden>ایمیل: {{ contact.email }}</p>
+            <p name="phone" hidden>تلفن: {{ contact.email }}</p>
+            <p name="home" hidden>شماره خانه یا شرکت: {{ contact.num_company_or_home }}</p>
+            <p name="address" hidden>ادرس: {{ contact.address }}</p>
+            <input type="checkbox" hidden name="alist" value="{{ contact.pk }}">
+        </div>
+    {% endfor %}
+
+
+    <!-- <iframe src="demo_iframe.htm" height="200" width="300" title="Iframe Example"></iframe>  -->
+</section>

@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    direction: rtl;
+}
+
+img {
+    width: 100%;
+}
+
+header {
+    background-color: green;
+    height: 150px
+}
+
+section {
+    padding: 10px;
+    width: 64%;
+    height: 740px;
+    border: 10px rgba(209, 208, 208, 0.1) solid;
+    background-color: blue;
+    border-style: inset;
+    float: left;
+    overflow-y: scroll;
+
+}
+
+section div {
+    border: 10px rgba(209, 208, 208, 0.1) solid;
+    border-style: inset;
+    float: left;
+    margin: 5px;
+    padding: 5px;
+    width: 163px;
+    height: 273px;
+}
+
+aside {
+    position: relative;
+    border: 10px rgba(209, 208, 208, 0.1) solid;
+    width: 17%;
+    height: 740px;
+    top: 0px;
+    float: left;
+    background-color: gray;
+    border-style: outset;
+    overflow-x: scroll;
+}
+
+section ~ aside {
+    position: relative;
+    border: 10px rgba(209, 208, 208, 0.1) solid;
+    width: 19%;
+    height: 740px;
+    top: 0px;
+    float: left;
+    background-color: gray;
+    border-style: outset;
+
+}
+
+aside div {
+    margin: 14px;
+}
+
+footer {
+    position: relative;
+    background-color: green;
+    height: 200px;
+    top: 746px;
+}
+
+.middleBox::after {
+    position: relative;
+    clear: both;
+}
+
+input[type="button"] {
+    width: 100%;
+}
+
+iframe {
+    position: absolute;
+    top: 200px;
+    left: 20%;
+    width: 350px;
+    height: 460px;
+    background-color: rgb(0, 255, 200, 0.5);
+
+}
+
+
+#mainBox {
+    padding: 0px;
+    margin: 0px;
+    min-width: 900px;
+}
+
+

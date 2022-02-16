@@ -1,0 +1,64 @@
+{% extends '_shared/_MainLayout.html' %}
+{% load render_partial %}
+{% load static %}
+
+{% block content %}
+    <aside onclick="checkSizeAside(1)">
+        <div>
+            <input hidden type="checkbox" value="1">
+            <input type="button" value="جست و جو" onclick="searchFrame()">
+            <input type="button" value="انتخاب" onclick="selectItems()">
+            <input type="button" value="پاک" onclick="deleteItem()">
+            <input type="button" value="اضافه" onclick="addFrame()">
+            <input type="button" value="اضافه کردن از طریق اکسل" onclick="addFile()">
+        </div>
+    </aside>
+
+    {% render_partial 'contact:show' %}
+
+    <aside onclick="checkSizeAside(2)">
+        <div>
+            <img src="{% static 'image/user.jpg' %}" alt="">
+            <p name="name">اسم: لورم ایپسوم متن ساختگی</p>
+            <p name="family">فامیلی: لورم ایپسوم متن ساختگی</p>
+            <p name="email">شماره تلفن: 09103791346</p>
+            <p name="phone">ایمیل: mokh09103791346@gmail.com</p>
+            <p name="home">شماره کمپانی یا خانه: 031-33356045</p>
+            <address name="address" id="address">ادرس: لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                استفاده
+                از طراحان
+                گرافیک است چاپگرها
+                و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
+                کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد کتابهای زیادی در شصت و سه درصد گذشته حال و
+                آینده
+                شناخت فراوان جامعه و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی.
+            </address>
+
+
+        </div>
+    </aside>
+    <div>
+        <dialog id="dialog">
+            <form action="/search" method="get">
+                <input type="text" placeholder="اسم" name="name">
+
+                <input type="text" placeholder="فامیلی" name="family">
+
+                <input type="text" placeholder="تلفن" name="phone">
+
+                <input type="text" placeholder="تلفن خانه یا شرکت" name="num">
+
+                <input type="text" placeholder="ایمیل" name="email">
+
+                <textarea rows="9" placeholder="ادرس" name="address"></textarea>
+                <br>
+                <input hidden type="text" id="search">
+                <button onclick="search()" type="submit">search</button>
+            </form>
+        </dialog>
+    </div>
+    {% render_partial 'contact:add_file' %}
+        <div>
+            <iframe hidden src="{% url 'contact:add_form' %}" title="add" name="add"></iframe>
+        </div>
+{% endblock %}
