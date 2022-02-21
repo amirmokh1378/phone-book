@@ -1,8 +1,19 @@
 <div>
-    <dialog style="height: 200px">
-        <form  method="post" enctype="multipart/form-data">
+    <dialog style="height: 150px; overflow: auto">
+        <form action="{% url 'contact:add_file' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
-            {{add_file_form}}
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} style="color:{{ message.tags }}"{% endif %}>
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %} {% endif %}
+                            {{ message }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {{ add_file_form }}
             <button type="submit">ارسال</button>
         </form>
     </dialog>

@@ -21,8 +21,8 @@ from phone_book import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_view),
-    path('search', search_view),
+    path('', home_view, name='home'),
+    path('search', search_view, name='search'),
     path('', include('phone_book_contacts.urls', namespace='contact')),
 ]
 

@@ -139,8 +139,13 @@ function deleteItem() {
     request.open('POST', '/delete-contact')
     request.setRequestHeader('X-CSRFToken', csrftoken)
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    if (request.readyState == 4 && request.status == 200){
+        request.responseText;
+        document.location.reload()
+    }
     request.send(str);
-    document.location.reload()
+
+
 
 }
 

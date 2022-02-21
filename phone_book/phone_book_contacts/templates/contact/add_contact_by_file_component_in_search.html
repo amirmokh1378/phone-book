@@ -1,0 +1,9 @@
+<div>
+    <dialog style="height: 150px; overflow: auto">
+        <form  action="{% url 'contact:add_file' %}?{{ request.GET.urlencode}}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{add_file_form}}
+            <button type="submit">ارسال</button>
+        </form>
+    </dialog>
+</div>

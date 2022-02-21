@@ -57,7 +57,7 @@
             </form>
         </dialog>
     </div>
-    {% render_partial 'contact:add_file' %}
+    {% include 'contact/add_contact_by_file_component.html' %}
         <div>
             <iframe hidden src="{% url 'contact:add_form' %}" title="add" name="add"></iframe>
         </div>

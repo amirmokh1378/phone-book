@@ -22,6 +22,7 @@ urlpatterns = [
     path('delete-contact', delete_contact_component_view, name='delete'),
     path('show-contact', show_contact_component_view, name='show'),
     path('add-contact-by-form', add_contact_by_form_component_view, name='add_form'),
-    path('add-contact-by-file', add_contact_by_file_component_view, name='add_file'),
+    path('add-contact-by-file', add_contact_by_file_view, name='add_file'),
+    path('add-contact-by-file-in-search', add_contact_by_file_component_view_for_search, name='add_file_in_search'),
     path('search-contact', search_contact_component_view, name='search'),
 ]

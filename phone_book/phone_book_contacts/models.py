@@ -21,6 +21,12 @@ class ContactManager(models.Manager):
             address__icontains=address)
         return anonymous_account.contact_set.filter(lookup).distinct()
 
+    def get_max_id_or_1(self):
+        id__max = self.aggregate(models.Max('id'))['id__max']
+        if id__max is not None:
+            id__max += 1
+        return id__max or 1
+
 
 class Contact(models.Model):
     name = models.CharField(max_length=20)
